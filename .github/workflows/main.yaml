@@ -17,12 +17,13 @@ jobs:
           java-version: '8.x'
       # 配置 Flutter 环境
       - uses: subosito/flutter-action@v1
+        channel: "stable"
         with:
           flutter-version: '2.2.3'
       # 执行构建之前，更新 flutter 依赖
       - run: flutter pub get
       # 测试
-      - run: flutter build apk 
+      - run: flutter build apk --release
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
