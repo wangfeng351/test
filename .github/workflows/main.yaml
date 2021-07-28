@@ -24,8 +24,8 @@ jobs:
       # 测试
       # - run: flutter test
       # - run: flutter build apk --debug --split-per-abi
-      - name: Create a Release APK
       - run: flutter build apk 
+      # - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
