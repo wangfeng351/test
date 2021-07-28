@@ -1,11 +1,14 @@
 # 触发工作流的操作
-on: push
+on: 
+  push:
+      tags:
+        - v*
 # 工作流名字
 name: Test, Build and Release apk
 # 需要执行的任务
 jobs:
-  build:
-    name: Build APK
+  process:
+    name: all process
     # 定义运行环境
     runs-on: ubuntu-latest
     # 执行步骤
@@ -18,15 +21,17 @@ jobs:
       # 配置 Flutter 环境
       - uses: subosito/flutter-action@v1
         with:
+          # 指定获取stable版本的flutter sdk
+          channel: "stable"
           flutter-version: '2.2.3'
       # 执行构建之前，更新 flutter 依赖
       - run: flutter pub get
       # 测试
       - run: flutter build apk --release
       - name: Create a Release APK
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.5.0
         with:
-          artifacts: "build/app/outputs/apk/debug/*.apk"
+          artifacts: "build/app/outputs/apk/release/*.apk"
           token: ${{ secrets.TOKEN }}
           commit: main
           tag: v1.0.${{github.run_number}}
