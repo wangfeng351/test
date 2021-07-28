@@ -17,7 +17,6 @@ jobs:
           java-version: '8.x'
       # 配置 Flutter 环境
       - uses: subosito/flutter-action@v1
-        channel: "stable"
         with:
           flutter-version: '2.2.3'
       # 执行构建之前，更新 flutter 依赖
