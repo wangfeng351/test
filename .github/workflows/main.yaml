@@ -22,10 +22,8 @@ jobs:
       # 执行构建之前，更新 flutter 依赖
       - run: flutter pub get
       # 测试
-      # - run: flutter test
-      # - run: flutter build apk --debug --split-per-abi
       - run: flutter build apk 
-      # - name: Create a Release APK
+      - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
