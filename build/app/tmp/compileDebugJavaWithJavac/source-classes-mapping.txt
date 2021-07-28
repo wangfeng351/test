@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/flutter_scaffold_demo/BuildConfig.java
+ com.example.flutter_scaffold_demo.BuildConfig
+com/example/flutter_scaffold_demo/MainActivity.java
+ com.example.flutter_scaffold_demo.MainActivity
